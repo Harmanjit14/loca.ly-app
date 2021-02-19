@@ -4,13 +4,15 @@ import 'package:localy/constants/text.dart';
 Widget smallCard() {
   return Container(
     margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-    height: 200,
+    height: 180,
     width: 200,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(20),
       color: Colors.grey[300],
     ),
     child: Column(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.only(
@@ -28,7 +30,15 @@ Widget smallCard() {
         Container(
             margin: EdgeInsets.fromLTRB(20, 0, 20, 5),
             alignment: Alignment.centerLeft,
-            child: boldText("locality", 14, Colors.black))
+            child: normalText("locality", 15, Colors.black)),
+        Container(
+            margin: EdgeInsets.fromLTRB(20, 0, 20, 5),
+            alignment: Alignment.centerLeft,
+            child: normalText("Rooms : 2", 11, Colors.black)),
+        Container(
+            margin: EdgeInsets.fromLTRB(20, 0, 20, 15),
+            alignment: Alignment.centerLeft,
+            child: boldText("Price : 20000", 14, Colors.black))
       ],
     ),
   );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:localy/constants/placesCardMain.dart';
 import 'package:localy/constants/placesmall.dart';
 import 'package:localy/constants/text.dart';
 import 'package:localy/server/location.dart';
@@ -86,6 +87,7 @@ class PlacesScreen extends StatelessWidget {
             ),
           ),
           Container(
+            margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
             height: 200,
             child: ListView.builder(
               physics: BouncingScrollPhysics(),
@@ -97,6 +99,9 @@ class PlacesScreen extends StatelessWidget {
               },
             ),
           ),
+          Divider(),
+          SizedBox(height: 23),
+          placeCard(size),
         ],
       ),
     );
