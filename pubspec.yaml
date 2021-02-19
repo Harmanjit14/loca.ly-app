@@ -27,7 +27,7 @@ dependencies:
   geolocator: ^6.2.0
   google_fonts: ^1.1.2
   graphql_flutter: ^4.0.1
-  http: ^0.13.0
+  geocoding: ^1.0.5
   liquid_pull_to_refresh: ^2.0.0
   salomon_bottom_bar: ^2.0.1
 

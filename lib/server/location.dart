@@ -1,8 +1,8 @@
 import 'package:geolocator/geolocator.dart';
-import 'package:http/http.dart' as http;
+import 'package:geocoding/geocoding.dart';
 
 Position location = new Position();
-var response;
+List<Placemark> placemarks;
 
 Future<int> getLocation() async {
   bool serviceEnabled;
@@ -29,11 +29,8 @@ Future<int> getLocation() async {
   location = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.best);
 
-  response = await http.get(
-      'https://api.bigdatacloud.net/data/reverse-geocode-client?latitude={$location.latitude}&longitude=$location.longitude}&localityLanguage=en');
+  placemarks =
+      await placemarkFromCoordinates(location.latitude, location.longitude);
 
-  if (response.statusCode == 200) {
-    return 2;
-  }
   return 1;
 }
