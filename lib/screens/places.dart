@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
+import 'package:localy/constants/placesmall.dart';
 import 'package:localy/constants/text.dart';
 import 'package:localy/server/location.dart';
 
 class PlacesScreen extends StatelessWidget {
   final controller = new TextEditingController();
   final scrollController = new ScrollController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
-      controller: scrollController,
+      primary: true,
       physics: BouncingScrollPhysics(),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 25),
           Container(
@@ -42,7 +45,7 @@ class PlacesScreen extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+            margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
             child: Row(
               children: [
                 Icon(
@@ -64,6 +67,34 @@ class PlacesScreen extends StatelessWidget {
                       Colors.grey[600]),
                 ),
               ],
+            ),
+          ),
+          Divider(),
+          Container(
+            margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
+            alignment: Alignment.centerLeft,
+            child: Row(
+              children: [
+                Icon(
+                  Icons.near_me,
+                  color: Colors.black,
+                  size: 30,
+                ),
+                SizedBox(width: 5),
+                boldText("Places near me!", 24, Colors.black),
+              ],
+            ),
+          ),
+          Container(
+            height: 200,
+            child: ListView.builder(
+              physics: BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemCount: 7,
+              shrinkWrap: true,
+              itemBuilder: (context, int index) {
+                return smallCard();
+              },
             ),
           ),
         ],
