@@ -2,7 +2,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
 
 Position location = new Position();
-List<Placemark> placemarks;
+List<Placemark> placemarks = [];
 
 Future<int> getLocation() async {
   bool serviceEnabled;
