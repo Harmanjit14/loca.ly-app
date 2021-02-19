@@ -19,28 +19,28 @@ class _HolderState extends State<Holder> {
   Widget build(BuildContext context) {
     List<Color> color = [
       Colors.pink,
-      Colors.orange,
-      Colors.cyan,
       Colors.teal,
+      Colors.cyan,
+      Colors.amber,
     ];
-    List<String> title = ["loca.ly", "Places", "Jobs", "My Profile"];
+    List<String> title = ["loca.ly", "Find Rooms", "Find Jobs", "My Profile"];
     List<SalomonBottomBarItem> items = [
       SalomonBottomBarItem(
-        icon: Icon(Icons.now_widgets),
+        icon: Icon(Icons.home),
         title: Text("Home"),
         selectedColor: Colors.pink,
       ),
 
       /// Likes
       SalomonBottomBarItem(
-        icon: Icon(Icons.home),
+        icon: Icon(Icons.now_widgets),
         title: Text("Buy/Rent"),
-        selectedColor: Colors.orange,
+        selectedColor: Colors.teal,
       ),
 
       /// Search
       SalomonBottomBarItem(
-        icon: Icon(Icons.contact_mail),
+        icon: Icon(Icons.group),
         title: Text("Jobs"),
         selectedColor: Colors.cyan,
       ),
@@ -49,7 +49,7 @@ class _HolderState extends State<Holder> {
       SalomonBottomBarItem(
         icon: Icon(Icons.person),
         title: Text("Profile"),
-        selectedColor: Colors.teal,
+        selectedColor: Colors.amber,
       ),
     ];
     void _handleIndexChanged(int i) {
