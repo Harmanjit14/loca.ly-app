@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:localy/constants/text.dart';
+import 'package:localy/server/location.dart';
 
 class PlacesScreen extends StatelessWidget {
   final GlobalKey<LiquidPullToRefreshState> _refreshIndicatorKey =
@@ -60,6 +61,9 @@ class PlacesScreen extends StatelessWidget {
                       SizedBox(width:5),
                       Container(
                         child: normalText("Curently at : ", 14, Colors.black),
+                      ),
+                      Container(
+                        child: normalText(location.toString(), 14, Colors.black),
                       ),
                     ],
                   ),

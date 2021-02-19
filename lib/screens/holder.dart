@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:localy/screens/places.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 

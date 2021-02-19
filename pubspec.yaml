@@ -24,11 +24,12 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
+  geolocator: ^6.2.0
   google_fonts: ^1.1.2
   graphql_flutter: ^4.0.1
-  salomon_bottom_bar: ^2.0.1
+  http: ^0.13.0
   liquid_pull_to_refresh: ^2.0.0
-  geolocator: ^6.2.0
+  salomon_bottom_bar: ^2.0.1
 
 dev_dependencies:
   flutter_test:
