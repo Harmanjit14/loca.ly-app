@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localy/screens/holder.dart';
+import 'package:localy/screens/placesExpanded.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Holder(),
+      initialRoute: "/room",
+      routes: {
+        "/": (context) => Holder(),
+        "/room": (context) => PlacesExpanded(),
+      },
     );
   }
 }
