@@ -95,6 +95,7 @@ class _HolderState extends State<Holder> {
       ),
       key: _scaffoldKey,
       appBar: AppBar(
+        brightness: Brightness.dark,
         centerTitle: true,
         actions: [
           IconButton(
