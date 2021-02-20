@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => Auth(),
         "/home": (context) => Holder(),
         "/room": (context) => PlacesExpanded(),
+        "/pE": (context) => PlacesExpanded(),
       },
     );
   }

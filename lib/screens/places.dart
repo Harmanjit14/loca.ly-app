@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:localy/constants/placesCardMain.dart';
 import 'package:localy/constants/placesmall.dart';
 import 'package:localy/constants/text.dart';
+import 'package:localy/screens/placesExpanded.dart';
 import 'package:localy/server/jobSQL.dart';
 import 'package:localy/server/location.dart';
 
@@ -55,9 +55,11 @@ class _PlacesScreenState extends State<PlacesScreen> {
               keyboardType: TextInputType.text,
               style: GoogleFonts.poppins(fontSize: 18, color: Colors.grey[800]),
               onEditingComplete: () {
-                print("HO gaya!");
+                Navigator.pushNamed(context, "/pE");
               },
-              onChanged: (value) {},
+              onChanged: (value) {
+                searchPlaces = value;
+              },
               controller: controller,
               decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search),
@@ -134,7 +136,7 @@ class _PlacesScreenState extends State<PlacesScreen> {
                         String room = alljobsHome[index]["roomtype"];
                         String loc = alljobsHome[index]["location"];
                         String url = alljobsHome[index]["url"];
-                        return smallCard(rent, room ,loc,url);
+                        return smallCard(rent, room, loc, url);
                       },
                     )
                   : SpinKitDualRing(color: Colors.teal)),
