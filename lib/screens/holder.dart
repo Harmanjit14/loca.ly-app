@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:localy/screens/jobs.dart';
 import 'package:localy/screens/places.dart';
 import 'package:localy/server/auth.dart';
+import 'package:localy/server/location.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class Holder extends StatefulWidget {
@@ -70,8 +71,12 @@ class _HolderState extends State<Holder> {
                 color: Colors.white,
               ),
               onPressed: () {
-                finName=null;
-                token=null;
+                finName = null;
+                token = null;
+                placemarks = null;
+                location = null;
+                Navigator.pushNamedAndRemoveUntil(
+                    context, "/", (route) => false);
               })
         ],
         title: Text(

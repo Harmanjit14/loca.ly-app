@@ -63,7 +63,7 @@ class PlacesScreen extends StatelessWidget {
                 Container(
                   child: normalText(
                       (placemarks.isNotEmpty)
-                          ? placemarks[0].toString()
+                          ? (placemarks[0].street+" "+placemarks[0].subLocality+" "+placemarks[0].locality)
                           : "No location found!",
                       14,
                       Colors.grey[600]),
