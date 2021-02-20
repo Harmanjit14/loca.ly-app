@@ -1,5 +1,7 @@
 import 'package:graphql/client.dart';
 
+List<dynamic> alljobs = [];
+
 Future getAllJobs() async {
   final _httpLink = HttpLink(
     'https://loca-ly.herokuapp.com/api/',
@@ -19,11 +21,11 @@ Future getAllJobs() async {
   );
 
   const String readRepositories = """
-   {
-  alljobs{
-    title
-  }
-}
+    {
+     alljobs{
+        title
+      }
+    }
 """;
   final QueryOptions options = QueryOptions(
     document: gql(readRepositories),
@@ -32,8 +34,9 @@ Future getAllJobs() async {
   final QueryResult result = await client.query(options);
 
   if (result.hasException) {
-    print(result.exception.toString());
+    return 0;
   } else {
-    print("HAS DATA");
+    alljobs = result.data as List;
+    return 1;
   }
 }
