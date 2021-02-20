@@ -30,7 +30,7 @@ class JobScreen extends StatelessWidget {
               controller: controller,
               decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search),
-                  labelText: "Search for rooms",
+                  labelText: "Search for jobs",
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -44,28 +44,34 @@ class JobScreen extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.location_on,
-                  color: Colors.grey,
-                  size: 24,
-                ),
-                SizedBox(width: 5),
-                Container(
-                  child: normalText("Curently at : ", 14, Colors.grey[600]),
-                ),
-                SizedBox(width: 5),
-                Container(
-                  child: normalText(
-                      (placemarks.isNotEmpty)
-                          ? placemarks[0].toString()
-                          : "No location found!",
-                      14,
-                      Colors.grey[600]),
-                ),
-              ],
+            child: Container(
+              margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.location_on,
+                    color: Colors.grey,
+                    size: 24,
+                  ),
+                  SizedBox(width: 5),
+                  Container(
+                    child: normalText("Curently at : ", 14, Colors.grey[600]),
+                  ),
+                  SizedBox(width: 5),
+                  Container(
+                    child: normalText(
+                        (placemarks.isNotEmpty)
+                            ? (placemarks[0].street +
+                                " " +
+                                placemarks[0].subLocality +
+                                " " +
+                                placemarks[0].locality)
+                            : "No location found!",
+                        14,
+                        Colors.grey[600]),
+                  ),
+                ],
+              ),
             ),
           ),
           Divider(),
@@ -98,7 +104,6 @@ class JobScreen extends StatelessWidget {
             ),
           ),
           Divider(),
-         
         ],
       ),
     );
