@@ -1,8 +1,9 @@
 import 'dart:async';
-
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:graphql/client.dart';
 import 'package:localy/server/auth.dart';
+import 'package:localy/server/location.dart';
 
 Future<void> sendDistress() async {
   await getAndsendLoc();
@@ -28,19 +29,19 @@ Future<int> getAndsendLoc() async {
     cache: GraphQLCache(),
     link: _link,
   );
-  Position position = await Geolocator.getCurrentPosition(
-      timeLimit: Duration(seconds: 10), desiredAccuracy: LocationAccuracy.best);
-  double lat = position.latitude;
-  double long = position.longitude;
-  print(lat);
-  print(long);
-  var date = DateTime.now();
+
+  location = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.best);
+
+  placemarks =
+      await placemarkFromCoordinates(location.latitude, location.longitude);
+  print("GOT LOCATION");
   String getAuthToken = """
-  mutation{
-    addEmergency(date : "${date.toString()}" ,latitude: "$lat" , longitude: "$long" ){
-      __typename
-    }
+ mutation{
+  addPolice(street: "${placemarks[0].street}" ,state: "${placemarks[0].locality}" ,city: "${placemarks[0].subLocality}" ){
+   __typename
   }
+}
 """;
   MutationOptions tokenGet = MutationOptions(
     document: gql(getAuthToken),
