@@ -31,6 +31,7 @@ Future<int> getLocation() async {
 
   placemarks =
       await placemarkFromCoordinates(location.latitude, location.longitude);
+      print("GOT LOCATION");
 
   return 1;
 }

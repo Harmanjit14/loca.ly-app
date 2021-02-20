@@ -98,12 +98,7 @@ class JobScreen extends StatelessWidget {
             ),
           ),
           Divider(),
-          SizedBox(height: 23),
-          jobCard(size),
-          SizedBox(height: 23),
-          RaisedButton(onPressed: () async {
-            await getAllJobs();
-          })
+         
         ],
       ),
     );
