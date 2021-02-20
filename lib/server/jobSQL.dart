@@ -66,10 +66,21 @@ Future getExpandedJobs(String area) async {
   const String readRepositories = """
    {
   searchpgs(search:"punjab"){
+     id
     rent
     location
     roomtype
+    kitchenAvailable
     url
+    usertype
+  	laundryIncluded
+    url
+    createdBy{
+      profile{
+        name
+        mobile
+      }
+    }
   }
 }
 """;

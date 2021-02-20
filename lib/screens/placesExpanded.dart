@@ -44,16 +44,25 @@ class _PlacesExpandedState extends State<PlacesExpanded> {
                 ),
               )
             : Container(
-              margin: EdgeInsets.fromLTRB(10, 30, 10, 20),
+                margin: EdgeInsets.fromLTRB(10, 30, 10, 20),
                 child: ListView.builder(
                   physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
-                  itemCount: (alljobsHome.length < 30) ? alljobsHome.length : 30,
+                  itemCount:
+                      (alljobsHome.length < 30) ? alljobsHome.length : 30,
                   itemBuilder: (context, int index) {
                     int rent = alljobsHome[index]["rent"];
-                    String room = alljobsHome[index]["roomtype"];
-                    String loc = alljobsHome[index]["location"];
-                    String url = alljobsHome[index]["url"];
+                    String room = alljobsSearch[index]["roomtype"];
+                    String loc = alljobsSearch[index]["location"];
+                    String url = alljobsSearch[index]["url"];
+                    String id = alljobsSearch[index]["id"];
+                    String kitchen = alljobsSearch[index]["kitchenAvailable"];
+                    String bathroom = alljobsSearch[index]["url"];
+                    String laundary = alljobsSearch[index]["laundryIncluded"];
+                    String name =
+                        alljobsSearch[index]["createdBy"]["profile"]["name"];
+                    String contact =
+                        alljobsSearch[index]["createdBy"]["profile"]["mobile"];
                     return placeCard(size);
                   },
                 ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:localy/constants/text.dart';
 
-Widget placeCard(Size size) {
+Widget placeCard(Size size,) {
   return Container(
     height: 200,
     width: size.width * 0.9,
