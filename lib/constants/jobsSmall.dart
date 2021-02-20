@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:localy/constants/text.dart';
 
-Widget smallCardJ() {
+Widget smallCardJ(int pay, String title, int rat) {
+  String val = (rat<0)?"good":"not good";
   return Container(
     margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
     height: 180,
@@ -30,15 +31,15 @@ Widget smallCardJ() {
         Container(
             margin: EdgeInsets.fromLTRB(20, 0, 20, 5),
             alignment: Alignment.centerLeft,
-            child: normalText("title", 15, Colors.black)),
+            child: normalText(title, 15, Colors.black)),
         Container(
             margin: EdgeInsets.fromLTRB(20, 0, 20, 5),
             alignment: Alignment.centerLeft,
-            child: normalText("Duration : 2 Months", 11, Colors.black)),
+            child: normalText("Security : "+val, 11, Colors.black)),
         Container(
             margin: EdgeInsets.fromLTRB(20, 0, 20, 15),
             alignment: Alignment.centerLeft,
-            child: boldText("Pay : 20000", 14, Colors.black))
+            child: boldText("Pay : $pay", 14, Colors.black))
       ],
     ),
   );

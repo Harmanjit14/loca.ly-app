@@ -122,7 +122,10 @@ class _JobScreenState extends State<JobScreen> {
                     scrollDirection: Axis.horizontal,
                     itemCount: (myjobs.length < 7) ? myjobs.length : 7,
                     itemBuilder: (context, int index) {
-                      return smallCardJ();
+                      int pay = myjobs[index]["pay"];
+                      String title = myjobs[index]["title"];
+                      int rat  = myjobs[index]["rating"]["rating"];
+                      return smallCardJ(pay, title, rat);
                     },
                   ),
           ),

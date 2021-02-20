@@ -23,11 +23,12 @@ Future getJobs(String area) async {
 
   String readRepositories = """
    {
-  searchpgs(search: "$area" ){
-    rent
-    location
-    roomtype
-    url
+  searchjobs(search: "$area"){
+    pay
+    title
+    rating{
+      rating
+    }
   }
 }
 """;
