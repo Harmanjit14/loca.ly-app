@@ -20,10 +20,9 @@ Future getsearchJobs(String area) async {
     cache: GraphQLCache(),
     link: _link,
   );
-
-  const String readRepositories = """
+ String readRepositories = """
    {
-  searchpgs(search:"punjab"){
+  searchpgs(search: "$area"){
     rent
     location
     roomtype
@@ -62,10 +61,9 @@ Future getExpandedJobs(String area) async {
     cache: GraphQLCache(),
     link: _link,
   );
-
-  const String readRepositories = """
+ String readRepositories = """
    {
-  searchpgs(search:"punjab"){
+  searchpgs(search:"$area"){
      id
     rent
     location

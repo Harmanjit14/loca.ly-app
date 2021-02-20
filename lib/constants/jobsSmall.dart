@@ -21,7 +21,7 @@ Widget smallCardJ() {
             height: 100,
             width: 200,
             child: Image.network(
-              "https://upload-system-bucket.s3.ap-south-1.amazonaws.com/uploads/e2a174e0-d78e-444c-b257-d600cf6d4596.jpeg",
+              "https://www.roberthalf.com/sites/default/files/styles/full_width_content_image_1x_small_480/public/2020-05/Accounting-Skills-You-Need-to-Succeed-on-the-Job-AT-Blog-05-26-20.jpg?itok=LCiRwnsN",
               fit: BoxFit.cover,
             ),
           ),

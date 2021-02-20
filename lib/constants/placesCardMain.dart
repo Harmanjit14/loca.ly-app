@@ -46,6 +46,7 @@ Widget placeCard(
           ).show();
     },
     child: Container(
+      margin: EdgeInsets.fromLTRB(10, 20, 10, 5),
       height: 200,
       width: size.width * 0.9,
       decoration: BoxDecoration(

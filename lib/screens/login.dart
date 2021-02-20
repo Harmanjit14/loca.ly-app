@@ -187,9 +187,8 @@ class _AuthState extends State<Auth> {
                     stateBut = 1;
                     setState(() {});
                     int temp = await getToken(email, password);
-                    int temp2 = await me();
                     int temp4 = await getLocation();
-                    if (temp == 1 && temp2 == 1) {
+                    if (temp == 1 && temp4 == 1) {
                       Timer(Duration(seconds: 2), () {
                         stateBut = 2;
                         setState(() {});

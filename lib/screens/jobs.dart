@@ -1,13 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:localy/constants/jobsCardMain.dart';
 import 'package:localy/constants/jobsSmall.dart';
 import 'package:localy/constants/text.dart';
-import 'package:localy/server/pgSQL.dart';
+import 'package:localy/server/job.dart';
 import 'package:localy/server/location.dart';
 
-class JobScreen extends StatelessWidget {
+class JobScreen extends StatefulWidget {
+  @override
+  _JobScreenState createState() => _JobScreenState();
+}
+
+class _JobScreenState extends State<JobScreen> {
   final controller = new TextEditingController();
+
+  int res = 0;
+  Future<void> boxes() async {
+    res = await getJobs("${placemarks[0].locality}");
+    setState(() {});
+    print("home");
+    return;
+  }
+
+  @override
+  void initState() {
+    boxes();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -93,15 +113,18 @@ class JobScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
             height: 200,
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: 7,
-              shrinkWrap: true,
-              itemBuilder: (context, int index) {
-                return smallCardJ();
-              },
-            ),
+            child: (res == 0)
+                ? SpinKitChasingDots(
+                    color: Colors.cyan,
+                  )
+                : ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: (myjobs.length < 7) ? myjobs.length : 7,
+                    itemBuilder: (context, int index) {
+                      return smallCardJ();
+                    },
+                  ),
           ),
           Divider(),
         ],

@@ -2,8 +2,9 @@ import 'package:graphql/client.dart';
 import 'package:localy/server/auth.dart';
 
 List<dynamic> alljobs = [];
+List<dynamic> myjobs = [];
 
-Future getsearchJobs(String area) async {
+Future getJobs(String area) async {
   final _httpLink = HttpLink(
     'https://loca-ly.herokuapp.com/api/',
   );
@@ -20,9 +21,9 @@ Future getsearchJobs(String area) async {
     link: _link,
   );
 
-  const String readRepositories = """
+  String readRepositories = """
    {
-  searchpgs(search:"punjab"){
+  searchpgs(search: "$area" ){
     rent
     location
     roomtype
@@ -39,13 +40,13 @@ Future getsearchJobs(String area) async {
   if (result.hasException) {
     return 0;
   } else {
-    alljobs = result.data["searchpgs"];
+    myjobs = result.data["searchjobs"];
     print("done data");
     return 1;
   }
 }
 
-Future getExpandedJobs(String area) async {
+Future getAll(String area) async {
   final _httpLink = HttpLink(
     'https://loca-ly.herokuapp.com/api/',
   );
@@ -64,23 +65,12 @@ Future getExpandedJobs(String area) async {
 
   const String readRepositories = """
    {
-  searchpgs(search:"punjab"){
-     id
-    rent
-    location
-    roomtype
-    kitchenAvailable
-    url
-    usertype
-  	laundryIncluded
-    washroomAttached
-    url
-    createdBy{
-      profile{
-        name
-        mobile
-      }
+  alljobs{
+    title
+    rating{
+      rating
     }
+    
   }
 }
 """;
@@ -93,7 +83,7 @@ Future getExpandedJobs(String area) async {
   if (result.hasException) {
     return 0;
   } else {
-    alljobs = result.data["searchpgs"];
+    alljobs = result.data["alljobs"];
     print("done data");
     return 1;
   }
