@@ -1,15 +1,16 @@
 import 'package:graphql/client.dart';
+import 'package:localy/server/auth.dart';
 
-List<dynamic> alljobs = [];
+List<dynamic> alljobsHome = [];
+List<dynamic> alljobsSearch = [];
 
-Future getAllJobs() async {
+Future getsearchJobs(String area) async {
   final _httpLink = HttpLink(
     'https://loca-ly.herokuapp.com/api/',
   );
 
   final _authLink = AuthLink(
-    getToken: () async =>
-        'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imd1cmxlZW5Abm90Tm9vYi5jb20iLCJleHAiOjE2MTM3OTc4NTUsIm9yaWdJYXQiOjE2MTM3OTc1NTV9.wnHIalgMxH9xda2Sl4eAcBDN8GCHBWMvd0nGdG-Zb24',
+    getToken: () async => 'JWT $token',
   );
 
   Link _link = _authLink.concat(_httpLink);
@@ -21,11 +22,14 @@ Future getAllJobs() async {
   );
 
   const String readRepositories = """
-    {
-     alljobs{
-        title
-      }
-    }
+   {
+  searchpgs(search:"punjab"){
+    rent
+    location
+    roomtype
+    url
+  }
+}
 """;
   final QueryOptions options = QueryOptions(
     document: gql(readRepositories),
@@ -36,7 +40,8 @@ Future getAllJobs() async {
   if (result.hasException) {
     return 0;
   } else {
-    alljobs = result.data as List;
+    alljobsHome = result.data["searchpgs"];
+    print("done data");
     return 1;
   }
 }

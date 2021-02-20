@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:localy/constants/placesCardMain.dart';
 import 'package:localy/constants/placesmall.dart';
@@ -7,9 +8,36 @@ import 'package:localy/constants/text.dart';
 import 'package:localy/server/jobSQL.dart';
 import 'package:localy/server/location.dart';
 
-class PlacesScreen extends StatelessWidget {
+class PlacesScreen extends StatefulWidget {
+  @override
+  _PlacesScreenState createState() => _PlacesScreenState();
+}
+
+class _PlacesScreenState extends State<PlacesScreen> {
   final controller = new TextEditingController();
+  int nearMe = 0;
+
   final scrollController = new ScrollController();
+
+  Future<void> boxes() async {
+    nearMe = await getsearchJobs("${placemarks[0].locality.toString()}");
+    setState(() {});
+    print("home");
+    return;
+  }
+
+  @override
+  void initState() {
+    boxes();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +91,11 @@ class PlacesScreen extends StatelessWidget {
                 Container(
                   child: normalText(
                       (placemarks.isNotEmpty)
-                          ? (placemarks[0].street+" "+placemarks[0].subLocality+" "+placemarks[0].locality)
+                          ? (placemarks[0].street +
+                              " " +
+                              placemarks[0].subLocality +
+                              " " +
+                              placemarks[0].locality)
                           : "No location found!",
                       14,
                       Colors.grey[600]),
@@ -88,25 +120,25 @@ class PlacesScreen extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
-            height: 200,
-            child: ListView.builder(
-              physics: BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: 7,
-              shrinkWrap: true,
-              itemBuilder: (context, int index) {
-                return smallCard();
-              },
-            ),
-          ),
+              margin: EdgeInsets.fromLTRB(0, 0, 0, 20),
+              height: 200,
+              child: (nearMe == 1)
+                  ? ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemCount:
+                          (alljobsHome.length < 7) ? alljobsHome.length : 7,
+                      shrinkWrap: true,
+                      itemBuilder: (context, int index) {
+                        int rent = alljobsHome[index]["rent"];
+                        String room = alljobsHome[index]["roomtype"];
+                        String loc = alljobsHome[index]["location"];
+                        String url = alljobsHome[index]["url"];
+                        return smallCard(rent, room ,loc,url);
+                      },
+                    )
+                  : SpinKitDualRing(color: Colors.teal)),
           Divider(),
-          SizedBox(height: 23),
-          placeCard(size),
-          SizedBox(height: 23),
-          RaisedButton(onPressed: () async {
-            await getAllJobs();
-          })
         ],
       ),
     );
