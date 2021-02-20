@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:localy/screens/holder.dart';
+import 'package:localy/screens/login.dart';
 import 'package:localy/screens/placesExpanded.dart';
 
 void main() {
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/",
       routes: {
-        "/": (context) => Holder(),
+        "/": (context) => Auth(),
+        "/home": (context) => Holder(),
         "/room": (context) => PlacesExpanded(),
       },
     );
