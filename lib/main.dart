@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: "/room",
+      initialRoute: "/",
       routes: {
         "/": (context) => Holder(),
         "/room": (context) => PlacesExpanded(),

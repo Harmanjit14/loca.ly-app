@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:localy/constants/placesCardMain.dart';
 import 'package:localy/constants/placesmall.dart';
 import 'package:localy/constants/text.dart';
+import 'package:localy/server/jobSQL.dart';
 import 'package:localy/server/location.dart';
 
 class PlacesScreen extends StatelessWidget {
@@ -102,6 +103,10 @@ class PlacesScreen extends StatelessWidget {
           Divider(),
           SizedBox(height: 23),
           placeCard(size),
+          SizedBox(height: 23),
+          RaisedButton(onPressed: () async {
+            await getAllJobs();
+          })
         ],
       ),
     );

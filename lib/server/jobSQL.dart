@@ -2,7 +2,7 @@ import 'package:graphql/client.dart';
 
 Future getAllJobs() async {
   final _httpLink = HttpLink(
-    'https://loca-ly.herokuapp.com/api',
+    'https://loca-ly.herokuapp.com/api/',
   );
 
   final _authLink = AuthLink(
