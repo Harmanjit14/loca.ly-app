@@ -195,6 +195,7 @@ class _AuthState extends State<Auth> {
                       Timer(Duration(seconds: 3), () {
                         password = "";
                         Navigator.pushReplacementNamed(context, "/home");
+                        password = null;
                       });
                     } else {
                       Timer(Duration(seconds: 2), () {
@@ -369,6 +370,7 @@ class _AuthState extends State<Auth> {
                       Timer(Duration(seconds: 3), () {
                         password = "";
                         Navigator.pushReplacementNamed(context, "/home");
+                        password = null;
                       });
                     } else {
                       Timer(Duration(seconds: 2), () {

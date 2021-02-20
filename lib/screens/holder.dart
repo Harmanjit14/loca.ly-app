@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:localy/screens/jobs.dart';
 import 'package:localy/screens/places.dart';
+import 'package:localy/server/auth.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class Holder extends StatefulWidget {
@@ -68,7 +69,10 @@ class _HolderState extends State<Holder> {
                 Icons.exit_to_app_rounded,
                 color: Colors.white,
               ),
-              onPressed: () {})
+              onPressed: () {
+                finName=null;
+                token=null;
+              })
         ],
         title: Text(
           title[_selectedTab.index],

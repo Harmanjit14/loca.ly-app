@@ -64,7 +64,7 @@ Future<int> createUser(String email, String password, String name) async {
 
   String getAuthToken = """
  mutation{
-  createUser(email: "$email" ,password: "$password" ,name: "$name" ){
+  createUser(email: "$email" ,password: "$password" ){
     __typename
   }
 }
@@ -103,7 +103,10 @@ Future<int> me() async {
   String getAuthToken = """
 {
   me{
-    name
+    email
+    profile{
+      name
+    }
   }
 }
 """;
@@ -117,7 +120,7 @@ Future<int> me() async {
     print(result.exception);
     return 0;
   } else {
-    finName = result.data["me"]["name"];
+    finName = result.data["me"]["profile"];
     print("done");
     return 1;
   }
