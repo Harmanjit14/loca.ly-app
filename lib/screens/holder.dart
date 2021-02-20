@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:localy/screens/jobs.dart';
 import 'package:localy/screens/places.dart';
 import 'package:localy/server/auth.dart';
+import 'package:localy/server/distress.dart';
 import 'package:localy/server/location.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class Holder extends StatefulWidget {
@@ -61,6 +63,35 @@ class _HolderState extends State<Holder> {
     }
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Alert(
+            context: context,
+            type: AlertType.warning,
+            title: "Emmergency Alert!",
+            desc: "This will alert Police Services that you need help!",
+            buttons: [
+              DialogButton(
+                child: Text(
+                  "Yes",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+                onPressed: () {
+                  sendDistress();
+                  Navigator.pop(context);
+                  setState(() {});
+                },
+                color: Color.fromRGBO(0, 179, 134, 1.0),
+              ),
+            ],
+          ).show();
+        },
+        child: Icon(
+          Icons.error,
+          color: Colors.white,
+        ),
+        backgroundColor: Colors.red[900],
+      ),
       key: _scaffoldKey,
       appBar: AppBar(
         centerTitle: true,

@@ -4,18 +4,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:graphql/client.dart';
 import 'package:localy/server/auth.dart';
 
-Future<void> sendDistress() {
-  print("started");
-  Timer(Duration(seconds: 0), () async {
-    print("1");
-    await getAndsendLoc();
-  });
-  Timer(Duration(seconds: 20), () async {
-    await getAndsendLoc();
-  });
-  Timer(Duration(seconds: 40), () async {
-    await getAndsendLoc();
-  });
+Future<void> sendDistress() async {
+  await getAndsendLoc();
 }
 
 Future<int> getAndsendLoc() async {
