@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:localy/screens/jobs.dart';
 import 'package:localy/screens/places.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -13,7 +14,7 @@ var _selectedTab = _SelectedTab.home;
 
 class _HolderState extends State<Holder> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  
+
   @override
   Widget build(BuildContext context) {
     List<Color> color = [
@@ -97,7 +98,7 @@ class Body extends StatelessWidget {
         return PlacesScreen();
         break;
       case 2:
-        return Container();
+        return JobScreen();
         break;
       case 3:
         return Container();
