@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:localy/constants/jobsCardMain.dart';
 import 'package:localy/constants/jobsSmall.dart';
 import 'package:localy/constants/text.dart';
-import 'package:localy/server/jobSQL.dart';
+import 'package:localy/server/pgSQL.dart';
 import 'package:localy/server/location.dart';
 
 class JobScreen extends StatelessWidget {

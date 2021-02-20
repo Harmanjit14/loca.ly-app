@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:localy/screens/jobs.dart';
+import 'package:localy/screens/mainscreen.dart';
 import 'package:localy/screens/places.dart';
 import 'package:localy/server/auth.dart';
 import 'package:localy/server/distress.dart';
@@ -132,7 +133,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (_selectedTab.index) {
       case 0:
-        return Container();
+        return MainScreen();
         break;
       case 1:
         return PlacesScreen();

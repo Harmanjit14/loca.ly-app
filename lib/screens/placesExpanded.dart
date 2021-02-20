@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:localy/constants/placesCardMain.dart';
-import 'package:localy/constants/placesmall.dart';
 import 'package:localy/constants/text.dart';
-import 'package:localy/server/jobSQL.dart';
+import 'package:localy/server/pgSQL.dart';
 
 String searchPlaces = "";
 
@@ -32,6 +31,7 @@ class _PlacesExpandedState extends State<PlacesExpanded> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
+          brightness: Brightness.dark,
           backgroundColor: Colors.teal,
           title: normalText("Search Results", 20, Colors.black),
         ),
@@ -57,13 +57,14 @@ class _PlacesExpandedState extends State<PlacesExpanded> {
                     String url = alljobsSearch[index]["url"];
                     String id = alljobsSearch[index]["id"];
                     String kitchen = alljobsSearch[index]["kitchenAvailable"];
-                    String bathroom = alljobsSearch[index]["url"];
+                    String bathroom = alljobsSearch[index]["washroomAttached"];
                     String laundary = alljobsSearch[index]["laundryIncluded"];
                     String name =
                         alljobsSearch[index]["createdBy"]["profile"]["name"];
                     String contact =
                         alljobsSearch[index]["createdBy"]["profile"]["mobile"];
-                    return placeCard(size);
+                    return placeCard(size, url, rent, room, loc, kitchen,
+                        bathroom, laundary, name, contact, context);
                   },
                 ),
               ));

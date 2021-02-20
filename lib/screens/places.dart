@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:localy/constants/placesmall.dart';
 import 'package:localy/constants/text.dart';
 import 'package:localy/screens/placesExpanded.dart';
-import 'package:localy/server/jobSQL.dart';
+import 'package:localy/server/pgSQL.dart';
 import 'package:localy/server/location.dart';
 
 class PlacesScreen extends StatefulWidget {

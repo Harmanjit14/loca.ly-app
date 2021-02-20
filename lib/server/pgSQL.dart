@@ -74,6 +74,7 @@ Future getExpandedJobs(String area) async {
     url
     usertype
   	laundryIncluded
+    washroomAttached
     url
     createdBy{
       profile{
