@@ -9,7 +9,7 @@ Flutter : Android Application
 Website : Javascript, Node, html, css
 ```
 ## Authors
-Gurleen Kaur @gurleen-kaur
-Harmanjit @Harmanjit14
-Kunal Khullar @kunal-khullar
+###### Gurleen Kaur @gurleen-kaur
+###### Harmanjit @Harmanjit14
+###### Kunal Khullar @kunal-khullar
 
