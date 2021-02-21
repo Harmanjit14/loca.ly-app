@@ -1,16 +1,15 @@
-# localy
+# loca.ly
+Find a home away from home
+# Getting Started
+Loca.ly makes our lives easier with so many features integrated in just one app.his app not only solves the rental housing easier for anyone in any corner of India but also tells us if any area is **going to be safe** for us. and also has an emergency security button. Not only this our app also lists all the jobs at any area which can be searched with filters like pay, location, skills or even worktype(if work from home ). 
+## Built with
+```bash
+Django : Backend python web Framework
+Flutter : Android Application
+Website : Javascript, Node, html, css
+```
+## Authors
+Gurleen Kaur @gurleen-kaur
+Harmanjit @Harmanjit14
+Kunal Khullar @kunal-khullar
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
