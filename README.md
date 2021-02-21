@@ -17,7 +17,7 @@ Website : Javascript, Node, html, css
 #### Frontend Web : https://github.com/Kunal-Khullar/kuhackfest
 <br> </br>
 ## Authors
-###### Gurleen Kaur @gurleen-kaur
+###### Gurleen Kaur @gurleen-kaur1313
 ###### Harmanjit @Harmanjit14
 ###### Kunal Khullar @kunal-khullar
 
